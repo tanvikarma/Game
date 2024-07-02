@@ -4,7 +4,7 @@ function checkWinner(index){
     const col = index%3;
 
     if(gameState[row*3]===currentPlayer && gameState[row*3+1]===currentPlayer && gameState[row*3+2]===currentPlayer){
-        return true;
+        return true; 
     }
     if(gameState[col]===currentPlayer && gameState[col+3]===currentPlayer && gameState[col+6]===currentPlayer){
         return true;

@@ -49,7 +49,17 @@ for(let i= 0;i<9;i++){
 }
 
 //add winning details
-let textBox = document.createElement('span');
-mainDivBox.appendChild(textBox);
+let scoreBox = document.createElement('div');
+scoreBox.style.textAlign = 'center';
+scoreBox.style.color ='white';
+mainDivBox.appendChild(scoreBox);
+
+let textBoxX = document.createElement('div');
+let textBoxO = document.createElement('div');
+let gameCountBox = document.createElement('div');
+
+scoreBox.appendChild(textBoxX);
+scoreBox.appendChild(textBoxO);
+scoreBox.appendChild(gameCountBox);
 
 

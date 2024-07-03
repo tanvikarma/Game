@@ -1,5 +1,5 @@
-document.body.style.backgroundImage = "url('../../../../assets/images/bg.jpg')"
-
+document.body.style.backgroundImage = "url('src/assets/images/bg.jpg')"
+// /home/rails/cssrepo/Tic_Tac_Toe/src/assets/images/bg.jpg
 const mainDivBox = document.getElementById('mainDiv');
 
 const gameBoard = document.createElement('div');
@@ -8,8 +8,9 @@ Object.assign(gameBoard.style, {
     gridTemplateColumns: 'repeat(3,100px)',
     gridTemplateRows : 'repeat(3,100px)',
     gap : '5px',
-    justifyContent : 'center',
-    alignItems : 'center'
+    maxWidth:'300px',
+    margin:'auto',
+    marginTop:'50px'
   });
 mainDivBox.appendChild(gameBoard);
 
@@ -21,7 +22,9 @@ Object.assign(resetButton.style, {
     margin: '20px',
     fontSize : '1em',
     cursor : 'pointer',
-    marginLeft : '42vw'    
+    marginLeft : '42vw',
+    color:'teal',
+    textShadow:'3px 3px 10px black'    
     });
 
 mainDivBox.appendChild(resetButton);
@@ -41,7 +44,10 @@ for(let i= 0;i<9;i++){
         alignItems : 'center',
         justifyContent: 'center',
         cursor : 'pointer',
-        border : '1px solid gray'
+        border : '1px solid gray',
+        fontSize:'3em',
+        color: 'teal',
+        textShadow:'3px 3px 10px black'
         });
     cell.setAttribute('data-index',i);
     cell.addEventListener('click', (e) => handleCellClick(e));
@@ -54,12 +60,14 @@ scoreBox.style.textAlign = 'center';
 scoreBox.style.color ='white';
 mainDivBox.appendChild(scoreBox);
 
-let textBoxX = document.createElement('div');
-let textBoxO = document.createElement('div');
-let gameCountBox = document.createElement('div');
+function createAndAppendElement(parent, elementType, properties = {}) {
+    const element = document.createElement(elementType);
+    Object.assign(element, properties);
+    parent.appendChild(element);
+    return element;
+}
 
-scoreBox.appendChild(textBoxX);
-scoreBox.appendChild(textBoxO);
-scoreBox.appendChild(gameCountBox);
-
-
+const textBoxX = createAndAppendElement(scoreBox, 'div');
+const textBoxO = createAndAppendElement(scoreBox, 'div');
+const gameCountBox = createAndAppendElement(scoreBox, 'div');
+  
